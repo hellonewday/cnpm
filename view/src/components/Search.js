@@ -26,7 +26,7 @@ class Search extends Component {
   };
 
   componentDidMount() {
-    Axios.get("/pieces")
+    Axios.get("https://cnpm-e17cn1.herokuapp.com/pieces")
       .then((response) => {
         console.log(response.data);
       })

@@ -6,7 +6,7 @@ class Text extends Component {
     data: [],
   };
   componentDidMount() {
-    Axios.get(`/pieces?text=${this.props.match.params.text}`)
+    Axios.get(`https://cnpm-e17cn1.herokuapp.com/pieces?text=${this.props.match.params.text}`)
       .then((response) => this.setState({ data: response.data.data }))
       .catch((error) => console.log(error.response));
   }

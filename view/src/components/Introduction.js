@@ -10,7 +10,7 @@ const Introduction = () => {
     if (event.target.value === "") {
       setData([]);
     } else {
-      Axios.get(`http://localhost:8001/pieces?text=${event.target.value}`)
+      Axios.get(`https://cnpm-e17cn1.herokuapp.com/pieces?text=${event.target.value}`)
         .then((response) => setData(response.data.data))
         .catch((error) => console.log(error.response));
     }

@@ -48,7 +48,7 @@ const SideBar = ({ dissapear }) => {
           <NavIcon>
             <AccessibilityNewIcon className={classes.icon} />
           </NavIcon>
-          <NavText>Cống hiến tri thức</NavText>
+          <NavText>Đóng góp kiến thức</NavText>
         </NavItem>
         <NavItem eventKey="search">
           <NavIcon>

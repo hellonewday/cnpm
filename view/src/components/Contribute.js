@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextField, Button, Container } from "@material-ui/core";
+import { TextField, Button, Container, Typography } from "@material-ui/core";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import ForwardIcon from "@material-ui/icons/Forward";
 import axios from "axios";
@@ -34,7 +34,7 @@ class Contribute extends Component {
       first_appear: this.state.first_appear,
     };
     axios
-      .post("/pieces", data)
+      .post("https://cnpm-e17cn1.herokuapp.com/pieces", data)
       .then((response) => {
         this.setState({ status: response.status });
       })
@@ -47,7 +47,10 @@ class Contribute extends Component {
   render() {
     const { status, text } = this.state;
     return (
-      <Container fixed>
+      <Container fixed style={{ marginTop: 20 }}>
+        <Typography style={{ margin: 10 }} variant="h4">
+          Đóng góp kiến thức
+        </Typography>
         <TextField
           id="standard-basic"
           label="Từ chuyên ngành"
@@ -110,9 +113,9 @@ class Contribute extends Component {
               <strong>Kiểm tra nào!</strong>
             </Link>
           </Alert>
-        ) : status === 500 ? (
+        ) : status > 400 ? (
           <Alert severity="error">
-            <AlertTitle>500 - Server gặp lỗi</AlertTitle>
+            <AlertTitle>${status} - Server gặp lỗi</AlertTitle>
             Có lỗi trong quá trình đăng tải
           </Alert>
         ) : (

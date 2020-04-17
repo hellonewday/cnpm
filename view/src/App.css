@@ -5,10 +5,10 @@
 }
 
 .scrollbar::-webkit-scrollbar {
-  height: 8px;
+  height: 10px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(skyblue, green);
+  background: linear-gradient(#1a237e, #414f9c);
+  border-radius: 10px;
 }
-
