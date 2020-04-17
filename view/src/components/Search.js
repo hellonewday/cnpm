@@ -77,7 +77,7 @@ class Search extends Component {
   render() {
     const { data } = this.state;
     return (
-      <Container fixed>
+      <Container>
         <br />
         <TextField
           id="standard-basic"

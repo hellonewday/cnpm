@@ -6,18 +6,27 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 850,
+    minWidth: 650,
+  },
+  row: {
+    "&:hover": {
+      backgroundColor: "#f7f7f0",
+      cursor: "pointer",
+    },
+    "&::-webkit-scrollbar": {
+      width: 10,
+    },
   },
 });
 
 export default function Datalist({ data }) {
   const classes = useStyles();
-
   return (
-    <TableContainer>
+    <TableContainer className="scrollbar">
       <Table
         style={{ width: 1500 }}
         className={classes.table}
@@ -25,10 +34,9 @@ export default function Datalist({ data }) {
       >
         <TableHead>
           <TableRow>
-            <TableCell>Id</TableCell>
             <TableCell align="left">Từ chuyên ngành</TableCell>
-            <TableCell align="left">Chương</TableCell>
-            <TableCell align="left">Số bản dịch</TableCell>
+            <TableCell align="center">Chương</TableCell>
+            <TableCell align="center">Số bản dịch</TableCell>
             <TableCell align="left">Bản dịch tiêu biểu</TableCell>
             <TableCell align="left">Lần đầu tạo</TableCell>
             <TableCell align="left">Cập nhật lần cuối</TableCell>
@@ -36,17 +44,19 @@ export default function Datalist({ data }) {
         </TableHead>
         <TableBody>
           {data.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell component="th" scope="row">
-                {row.id}
-              </TableCell>
+            <TableRow className={classes.row} key={row.id}>
               <TableCell component="th" align="left">
-                {row.text}
+                <Link
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  to={`/text/${row.text}`}
+                >
+                  {row.text}{" "}
+                </Link>
               </TableCell>
-              <TableCell component="th" align="left">
+              <TableCell component="th" align="center">
                 {row.chapter}
               </TableCell>
-              <TableCell component="th" align="left">
+              <TableCell component="th" align="center">
                 {row.meaning_counts}
               </TableCell>
               <TableCell component="th" align="left">

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { TextField, Button, Container } from "@material-ui/core";
+import { Alert, AlertTitle } from "@material-ui/lab";
 import ForwardIcon from "@material-ui/icons/Forward";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const styles = {
   textField: {
@@ -17,6 +19,7 @@ class Contribute extends Component {
     text: "",
     meaning: "",
     first_appear: "",
+    status: "",
   };
 
   handleChange = (event) => {
@@ -25,19 +28,15 @@ class Contribute extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    let data = {
+      text: this.state.text,
+      meaning: this.state.meaning,
+      first_appear: this.state.first_appear,
+    };
     axios
-      .post("/pieces", this.state)
+      .post("/pieces", data)
       .then((response) => {
-        if (response.status === 201) {
-          alert("Thêm thành công!");
-          window.location.replace("/search");
-        } else if (response.status === 200) {
-          alert(
-            "Từ chuyên ngành của bạn đã có người dịch, bản dịch của bạn sẽ được thêm vào danh sách nghĩa của từ chuyên ngành này"
-          );
-          window.location.replace("/search");
-        }
+        this.setState({ status: response.status });
       })
       .catch((error) => {
         console.log(error.response);
@@ -46,6 +45,7 @@ class Contribute extends Component {
   };
 
   render() {
+    const { status, text } = this.state;
     return (
       <Container fixed>
         <TextField
@@ -87,6 +87,37 @@ class Contribute extends Component {
           Đăng tải <ForwardIcon style={{ marginLeft: 10, fontSize: 30 }} />
         </Button>
         <br />
+        {status === 201 ? (
+          <Alert severity="success">
+            <AlertTitle>Đăng tải thành công</AlertTitle>
+            Tri thức của bạn đã được chia sẻ tới cộng đồng —{" "}
+            <Link
+              to={`/text/${text}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <strong>Đi xem nào!</strong>{" "}
+            </Link>
+          </Alert>
+        ) : status === 200 ? (
+          <Alert severity="info">
+            <AlertTitle>Đã được cập nhật</AlertTitle>
+            Bản dịch của bạn đã được cập nhật vào khay bản dịch của từ chuyên
+            ngành trên —{" "}
+            <Link
+              to={`/text/${text}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <strong>Kiểm tra nào!</strong>
+            </Link>
+          </Alert>
+        ) : status === 500 ? (
+          <Alert severity="error">
+            <AlertTitle>500 - Server gặp lỗi</AlertTitle>
+            Có lỗi trong quá trình đăng tải
+          </Alert>
+        ) : (
+          ""
+        )}
       </Container>
     );
   }

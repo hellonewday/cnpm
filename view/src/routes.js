@@ -7,6 +7,7 @@ import App from "./App";
 import "./App.css";
 import Contribute from "./components/Contribute";
 import Training from "./components/Training";
+import Text from "./components/Text";
 class Routes extends Component {
   render() {
     return (
@@ -16,6 +17,7 @@ class Routes extends Component {
         <Switch>
           <Route path="/" exact component={(props) => <App />} />
           <Route path="/search" component={(props) => <Search />} />
+          <Route path="/text/:text" component={Text} />
           <Route path="/contribute" component={(props) => <Contribute />} />
           <Route path="/training" component={(props) => <Training />} />
         </Switch>

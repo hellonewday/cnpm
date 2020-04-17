@@ -3,3 +3,12 @@
     display: none;
   }
 }
+
+.scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(skyblue, green);
+}
+

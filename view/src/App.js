@@ -1,13 +1,11 @@
 import React from "react";
-import { Container, Typography } from "@material-ui/core";
+import { Container} from "@material-ui/core";
 import Introduction from "./components/Introduction";
 
 function App() {
   return (
     <div>
-      {/* <Navbar />
-      <SideBar /> */}
-      <Container fixed>
+      <Container>
         <Introduction />
       </Container>
     </div>

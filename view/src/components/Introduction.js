@@ -1,15 +1,40 @@
-import React from "react";
-import { Container, Typography } from "@material-ui/core";
-import { GiaoTrinh } from "../documents/giaotrinh.pdf";
+import React, { useState } from "react";
+import { Typography, TextField } from "@material-ui/core";
+import Axios from "axios";
+import Datalist from "./Datalist";
 
 const Introduction = () => {
+  const [data, setData] = useState([]);
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    if (event.target.value === "") {
+      setData([]);
+    } else {
+      Axios.get(`http://localhost:8001/pieces?text=${event.target.value}`)
+        .then((response) => setData(response.data.data))
+        .catch((error) => console.log(error.response));
+    }
+  };
+
   return (
     <div>
-      <Typography variant="h5" style={{ margin: 10 }}>
+      <Typography variant="h6" style={{ margin: 10 }}>
         Chào mừng các bạn đến tới trung tâm học tập môn{" "}
         <b>Nhập môn Công nghệ phần mềm</b> - Khoa Công nghệ thông tin
+        <div style={{ margin: 10 }}>
+          <TextField
+            id="standard-basic"
+            label="Tìm kiếm nhanh"
+            variant="outlined"
+            type="text"
+            name="text"
+            onChange={handleChange}
+            margin="dense"
+            fullWidth
+          />
+        </div>
       </Typography>
-      <hr />
+      {data.length > 0 ? <Datalist data={data} /> : <hr />}
       <Typography variant="h5" style={{ margin: 10 }}>
         <b>Có gì hay ho ở đây?</b>
       </Typography>
@@ -28,8 +53,9 @@ const Introduction = () => {
         Agile,...nên mình có sáng kiến tại sao không cùng nhau note ra một tờ
         giấy những gì đọng lại trong quyển giáo trình nhỉ? Những ai chăm học có
         thể nhìn vào đó để học, hoặc những ai lười học có thể nhìn vào đó, gõ
-        cái ra luôn một tràng các meaning để trả lời vấn đáp hàng tuần. Note ra
-        khá vất vả nên mình đã dành 4 tiếng để code ra trang web này.
+        cái ra luôn một tràng các meaning để trả lời vấn đáp hàng tuần. Tuy
+        nhiên việc note ra khá vất vả thì khá khó tìm nên mình đi tới kết luận
+        làm ra trang web này.
       </Typography>
       <br />
       <br />
