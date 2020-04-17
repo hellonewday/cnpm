@@ -10,7 +10,9 @@ const Introduction = () => {
     if (event.target.value === "") {
       setData([]);
     } else {
-      Axios.get(`https://cnpm-e17cn1.herokuapp.com/pieces?text=${event.target.value}`)
+      Axios.get(
+        `https://cnpm-e17cn1.herokuapp.com/pieces?text=${event.target.value}`
+      )
         .then((response) => setData(response.data.data))
         .catch((error) => console.log(error.response));
     }
@@ -20,7 +22,7 @@ const Introduction = () => {
     <div>
       <Typography variant="h6" style={{ margin: 10 }}>
         Chào mừng các bạn đến tới trung tâm học tập môn{" "}
-        <b>Nhập môn Công nghệ phần mềm</b> - Khoa Công nghệ thông tin
+        <b>Nhập môn Công nghệ phần mềm</b> - INT1340
         <div style={{ margin: 10 }}>
           <TextField
             id="standard-basic"
@@ -63,10 +65,8 @@ const Introduction = () => {
         <b>Mình là ai?</b>
       </Typography>
       <Typography variant="h6" style={{ margin: 10 }}>
-        Mình hiện đang là nhân viên IT của AFFVNA Group - Eagle Team, sinh viên
-        của khoa Công nghệ thông tin hệ Chất lượng cao. Công việc hàng ngày của
-        mình là viết phần mềm, tool, chạy và cài đặt hệ thống cho các đầu quảng
-        cáo online và về nhà cày LMHT tới khi nào mẹ mắng đi ngủ thì thôi.
+        Mình là Maximuss, sinh viên năm 3 khoa Công nghệ thông tin Chất lượng
+        cao, hiện tại đang đi làm IT full-time ở 1 công ty tại Hà Nội.
         <br />
         Mình đam mê lập trình Web, đặc biệt NodeJS, Express, Facebook Stack
         (GraphQL, Redux, React, React Native,...) và MongoDB.
@@ -81,7 +81,8 @@ const Introduction = () => {
           style={{ textDecoration: "none", color: "black" }}
           href="https://drive.google.com/file/d/0B6kidcV4CiTFLTI4UmozWlpBS3M/view?usp=sharing"
         >
-          1. Giáo trình
+          1. Giáo trình (những thông tin trong trang này đều liên quan tới giáo
+          trình này)
         </a>
         <br />
         <a

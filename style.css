@@ -1,0 +1,36 @@
+body {
+     margin: 0;
+}
+
+.header {
+     background: teal;
+     padding-bottom: 150px;
+}
+
+.nav {
+     display: flex;
+     background-color: orange;
+}
+
+.nav a {
+     text-decoration: none;
+     color: black;
+     padding: 6px;
+}
+
+.green {
+     width: 25%;
+     padding-bottom: 600px;
+     background-color: greenyellow;
+}
+
+.yellow {
+     width: 75%;
+     padding-bottom: 600px;
+     background-color: goldenrod;
+}
+
+.footer {
+     background-color: #00639c;
+     padding-bottom: 100px;
+}

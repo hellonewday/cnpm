@@ -41,7 +41,9 @@ class Search extends Component {
     event.preventDefault();
     //     console.log(this.state);
     if (this.state.text && this.state.chapter) {
-      Axios.get(`/pieces?text=${this.state.text}&chapter=${this.state.chapter}`)
+      Axios.get(
+        `https://cnpm-e17cn1.herokuapp.com/pieces?text=${this.state.text}&chapter=${this.state.chapter}`
+      )
         .then((response) => {
           this.setState({ data: response.data.data });
           console.log(this.state.data);
@@ -50,7 +52,9 @@ class Search extends Component {
           console.log(error.response);
         });
     } else if (this.state.text && !this.state.chapter) {
-      Axios.get(`/pieces?text=${this.state.text}`)
+      Axios.get(
+        `https://cnpm-e17cn1.herokuapp.com/pieces?text=${this.state.text}`
+      )
         .then((response) => {
           this.setState({ data: response.data.data });
           console.log(this.state.data);
@@ -60,7 +64,9 @@ class Search extends Component {
         });
       //  console.log("Find all text with ...");
     } else if (!this.state.text && this.state.chapter) {
-      Axios.get(`/pieces?chapter=${this.state.chapter}`)
+      Axios.get(
+        `https://cnpm-e17cn1.herokuapp.com/pieces?chapter=${this.state.chapter}`
+      )
         .then((response) => {
           this.setState({ data: response.data.data });
           console.log(this.state.data);
@@ -109,7 +115,7 @@ class Search extends Component {
         </Button>
         <br />
         <br />
-        {data.length > 0 ? <Datalist data={data} /> : <h5>Chưa có dữ liệu</h5>}
+        <Datalist data={data} />
       </Container>
     );
   }

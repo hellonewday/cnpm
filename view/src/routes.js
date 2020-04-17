@@ -8,6 +8,9 @@ import "./App.css";
 import Contribute from "./components/Contribute";
 import Training from "./components/Training";
 import Text from "./components/Text";
+import Chapter from "./components/Chapter";
+import Github from "./components/Github";
+import Blog from "./components/Blog";
 class Routes extends Component {
   render() {
     return (
@@ -17,9 +20,13 @@ class Routes extends Component {
         <Switch>
           <Route path="/" exact component={(props) => <App />} />
           <Route path="/search" component={(props) => <Search />} />
-          <Route path="/text/:text" component={Text} />
           <Route path="/contribute" component={(props) => <Contribute />} />
           <Route path="/training" component={(props) => <Training />} />
+
+          <Route path="/text/:text" component={Text} />
+          <Route path="/chapters/:chap" component={Chapter} />
+          <Route path="/github" component={(props) => <Github />} />
+          <Route path="/blog" component={(props) => <Blog />} />
         </Switch>
       </BrowserRouter>
     );
