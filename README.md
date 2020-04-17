@@ -13,5 +13,9 @@ yarn add
 yarn start
 ```
 # Cho ai đó muốn tiếp tục
-Mình chưa up nó lên mongodb public, cũng chưa chỉnh lại route path để deploy lên github pages. 
-Fork repo này về, clone, rồi commit lên, tạo pull request rồi mình sẽ check! Thanks!
+Liệt kê tất cả các thuật ngữ, kiến thức hay trong 1 chương, và tạo 1 mục Tổng hợp kiến thức, dropdown theo chương ở phần Sidebar
+
+Sử dụng Redux hoặc Context để chuẩn hóa quy trình lấy dữ liệu, hầu hết mình đều Fetch dữ liệu nên dùng redux-saga
+
+Thống nhất được host giữa client và server, hiện tại mình đang dùng heroku cho server và github pages cho client
+
