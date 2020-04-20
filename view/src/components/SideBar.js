@@ -8,6 +8,7 @@ import SideNav, {
   NavText,
 } from "@trendmicro/react-sidenav";
 
+// Icon
 import HomeIcon from "@material-ui/icons/Home";
 import AccessibilityNewIcon from "@material-ui/icons/AccessibilityNew";
 import LiveHelpIcon from "@material-ui/icons/LiveHelp";
@@ -15,6 +16,7 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import CodeIcon from "@material-ui/icons/Code";
+import InfoIcon from "@material-ui/icons/Info";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
@@ -91,7 +93,13 @@ const SideBar = ({ dissapear }) => {
           <NavIcon>
             <MenuBookIcon className={classes.icon} />
           </NavIcon>
-          <NavText>Luyện thi trắc nghiệm</NavText>
+          <NavText>Giải đáp ngân hàng</NavText>
+        </NavItem>
+        <NavItem eventKey="about">
+          <NavIcon>
+            <InfoIcon className={classes.icon} />
+          </NavIcon>
+          <NavText>Về sản phẩm</NavText>
         </NavItem>
         <hr />
         <NavItem eventKey="blog">

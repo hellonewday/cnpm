@@ -11,6 +11,8 @@ import Text from "./components/Text";
 import Chapter from "./components/Chapter";
 import Github from "./components/Github";
 import Blog from "./components/Blog";
+import About from "./components/About";
+
 class Routes extends Component {
   render() {
     return (
@@ -22,6 +24,7 @@ class Routes extends Component {
           <Route path="/search" component={(props) => <Search />} />
           <Route path="/contribute" component={(props) => <Contribute />} />
           <Route path="/training" component={(props) => <Training />} />
+          <Route path="/about" component={(props) => <About />} />
 
           <Route path="/text/:text" component={Text} />
           <Route path="/chapters/:chap" component={Chapter} />
