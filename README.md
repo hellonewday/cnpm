@@ -10,7 +10,7 @@ npm run dev
 # Start front-end
 ``` 
 yarn add 
-yarn start
+yarn install
 ```
 # Cho ai đó muốn tiếp tục
 Liệt kê tất cả các thuật ngữ, kiến thức hay trong 1 chương, và tạo 1 mục Tổng hợp kiến thức, dropdown theo chương ở phần Sidebar
